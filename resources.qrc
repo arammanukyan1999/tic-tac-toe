@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/tickdialogstyle.qss</file>
+        <file>styles/boardstyle.qss</file>
+    </qresource>
+</RCC>
