@@ -18,6 +18,8 @@ public:
     bool isCellEmpty(QPair<int,int>);
     Cell *getCell(QPair<int,int>);
     QVector<QVector<Cell *>>* getCellboard();
+    int height;
+    int width;
 
 
 signals:

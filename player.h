@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <QObject>
+#include <QPair>
+#include "board.h"
 #include "libtic.h"
 
 using Tic::XOStates;
@@ -15,6 +17,7 @@ public:
 public:
     explicit Player(QString="Computer",XOStates=XOStates::X);
     virtual bool isHuman() = 0;
+    virtual QPair<int, int> computeTurn(Board*) = 0;
 
 signals:
 

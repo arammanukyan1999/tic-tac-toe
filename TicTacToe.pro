@@ -15,7 +15,6 @@ CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     tickdialog.cpp \
     player.cpp \
     board.cpp \
@@ -26,8 +25,7 @@ SOURCES += main.cpp\
     playerselectdialog.cpp \
     playersnamedialog.cpp
 
-HEADERS  += mainwindow.h \
-    tickdialog.h \
+HEADERS  += tickdialog.h \
     player.h \
     board.h \
     game.h \

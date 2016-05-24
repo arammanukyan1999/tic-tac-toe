@@ -7,6 +7,7 @@ class HumanPlayer : public Player
 public:
     HumanPlayer(QString, XOStates);
     bool isHuman();
+    QPair<int, int> computeTurn(Board*);
 };
 
 #endif // HUMANPLAYER_H

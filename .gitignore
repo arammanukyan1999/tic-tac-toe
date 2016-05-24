@@ -1,5 +1,8 @@
 *.o
 moc_*
+Makefile
+TicTacToe
+qrc_resources.cpp
 
 .vscode
 

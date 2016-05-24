@@ -9,7 +9,7 @@
 
 using namespace Tic;
 
-Board::Board(int n,int m,QWidget *parent) : QWidget(parent)
+Board::Board(int n,int m, QWidget *parent) : QWidget(parent)
 {
 
     for(int i=0;i<m;i++){
@@ -28,9 +28,6 @@ Board::Board(int n,int m,QWidget *parent) : QWidget(parent)
     for(int i=0; i<m; ++i)
         for(int j=0; j<n; ++j)
         {
-
-            qDebug()<<i<<" "<<j<<"\n";
-
             cells[i].push_back(new Cell);
             cells[i][j]->setMinimumSize(50,50);
             cells[i][j]->state = XOStates::Empty;
@@ -40,6 +37,8 @@ Board::Board(int n,int m,QWidget *parent) : QWidget(parent)
 
             connect(cells[i][j],SIGNAL(clicked(bool)),this,SLOT(onCellClick()));
         }
+    this->height = n;
+    this->width = m;        
 
 }
 void Board::onCellClick(){
@@ -51,10 +50,12 @@ void Board::setCellState(QPair<int,int> index,XOStates state) {
     switch (state) {
     case X:
         getCell(index)->setText("X");
+        getCell(index)->setStyleSheet("QPushButton { color: red; }");
         getCell(index)->state=XOStates::X;
         break;
     case O:
         getCell(index)->setText("O");
+        getCell(index)->setStyleSheet("QPushButton { color: blue; }");
         getCell(index)->state=XOStates::O;
         break;
     }

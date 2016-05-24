@@ -2,6 +2,9 @@
 #define GAME_H
 
 #include <QWidget>
+#include <QLabel>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include "libtic.h"
 #include "board.h"
 #include "player.h"
@@ -17,6 +20,8 @@ private:
     Player *OPlayer;
     XOStates currentState;
     Player *currentPlayer;
+    QHBoxLayout *mainLayout;
+    QVBoxLayout *boardLayout;
     int playCount;
     PlayerSelectDialog* playerSelectDialog;
     PlayersNameDialog*  playersNameDialog;
@@ -24,6 +29,10 @@ private:
     int height;
     int winCount;
     bool isStarted;
+    QString currentStateName();
+    void updateName();
+    QLabel *cpName;
+    Tic::GameData *data;
 
 public:
     explicit Game(QWidget *parent = 0);
@@ -31,11 +40,12 @@ public:
     void startGame(Tic::GameData*);
 
 signals:
+    void newGame();
 
 public slots:
     void onBoardCellClick(QPair<int,int>);
     void selectNames(int);
-    bool checkWinner();
+    bool checkWinner(QPair<int, int>);
     void nextTurn();
     void turn(QPair<int,int>);
 };
